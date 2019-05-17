@@ -6,6 +6,7 @@ import './App.css';
 import './css/Header.css';
 import './css/Hero.css';
 import './css/Button.css';
+import './css/Menu.css';
 import { LandingPage } from './pages/landingPage';
 
 const App = () => 

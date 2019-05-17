@@ -1,0 +1,37 @@
+.menu {
+  text-align: center;
+  background: #01b0fe;
+  font-size: 1.125em;
+  padding: 1.278em 0;
+}
+
+.menu a {
+  display: inline-block;
+  width: 12.5em;
+  height: 2em;
+  line-height: 2em;
+  border: 0 solid #0097db;
+  border-width: 0 2px;
+  margin-left: -2px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: border-color 0.5s, color 0.1s;
+}
+
+.menu a:hover {
+  z-index: 50;
+  text-transform: none;
+  font-size: 1.335em;
+  color: #0a5070;
+  width: 9.3635em;
+  height: 1.5em;
+  line-height: 1.5em;
+  border-color: #01b0fe;
+}
+
+@media only screen and (max-width: 1000px) {
+    .menu {
+        font-size: 15px;
+    }
+} 
