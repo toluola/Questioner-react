@@ -7,6 +7,7 @@ import './css/Header.css';
 import './css/Hero.css';
 import './css/Button.css';
 import './css/Menu.css';
+import './css/Card.css';
 import { LandingPage } from './pages/landingPage';
 
 const App = () => 
