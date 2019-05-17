@@ -3,15 +3,6 @@
 import React from 'react';
 
 export const Header = () => {
-  // const onclickButton = () => {
-  //   const buttonClicked = document.getElementById('links');
-  //   if (buttonClicked.style.display === 'block') {
-  //     buttonClicked.style.display === 'none';
-  //   } else {
-  //     buttonClicked.style.display === 'block';
-  //   }
-  // }
-
   return (
     <div className="header">
   <a href="/" className="logo">QUESTIONER</a>
