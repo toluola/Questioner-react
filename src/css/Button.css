@@ -1,0 +1,20 @@
+.button {
+  display: inline-block;
+  padding: 0.75em 1.4em;
+  border-radius: 2em;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #99ce45;
+  border: 0.125em solid #99ce45;
+  color: #fff;
+  transition: background 0.4s, color 0.4s, border-color 0.4s;
+}
+
+.button:hover {
+  background: transparent;
+  color: #99ce45;
+  text-decoration: none;
+}
