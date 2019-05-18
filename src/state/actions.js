@@ -1,23 +1,23 @@
 /* eslint-disable no-console */
 import axios from './axios';
-import { ARTICLE_GET_SUCCESS, ARTICLE_GET_FAILURE } from './actionTypes';
+import { MEETUP_GET_SUCCESS, MEETUP_GET_FAILURE } from './actionTypes';
 
-export const ArticleSuccess = article => ({
-  type: ARTICLE_GET_SUCCESS,
-  article
+export const MeetupSuccess = meetup => ({
+  type: MEETUP_GET_SUCCESS,
+  meetup
 });
 
-export const ArticleFailure = error => ({
-    type: ARTICLE_GET_FAILURE,
+export const MeetupFailure = error => ({
+    type: MEETUP_GET_FAILURE,
     error
 })
 
 
-export const GetArticle = () => async dispatch => {
+export const GetMeetups = () => async dispatch => {
     try {
-       const getArticle = await axios.get('/meetups');
-        dispatch(ArticleSuccess(getArticle.data.data));
+       const getMeetup = await axios.get('/meetups');
+        dispatch(MeetupSuccess(getMeetup.data.data));
     } catch (error) {
-       dispatch(ArticleFailure(error.response));
+       dispatch(MeetupFailure(error.response));
     }
 }

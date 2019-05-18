@@ -1,12 +1,17 @@
 import { initialState } from "./initialState";
-import { ARTICLE_GET_SUCCESS } from "./actionTypes";
+import { MEETUP_GET_SUCCESS, MEETUP_GET_FAILURE } from "./actionTypes";
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ARTICLE_GET_SUCCESS:
+    case MEETUP_GET_SUCCESS:
       return {
         ...state,
-        AllArticles: action.article
+        AllMeetups: action.meetup
+      };
+    case MEETUP_GET_FAILURE:
+      return {
+        ...state,
+        error: action.error
       };
     default:
       return state;

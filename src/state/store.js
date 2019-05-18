@@ -2,10 +2,10 @@
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import { article } from "./index";
+import { meetup } from "./index";
 
 const rootReducer = combineReducers({
-  [article.stateKey]: article.reducer
+  [meetup.stateKey]: meetup.reducer
 });
 
 const middleware = [logger, thunk];

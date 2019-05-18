@@ -1,3 +1,3 @@
 export const initialState = {
-    AllArticles: []
+    AllMeetups: []
 };

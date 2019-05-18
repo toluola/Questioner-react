@@ -1,8 +1,8 @@
 import { initialState } from './initialState';
 import reducer from './reducer';
 
-export const article = {
+export const meetup = {
   initialState,
   reducer,
-  stateKey: 'Article',
+  stateKey: 'Meetup',
 };

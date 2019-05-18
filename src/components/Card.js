@@ -2,23 +2,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
-import { GetArticle } from '../state/actions';
+import { GetMeetups } from '../state/actions';
 
 // eslint-disable-next-line react/prop-types
-export const Card = ({ getArticles, allArticles }) => {
+export const Card = ({ getMeetups, allMeetups }) => {
   useEffect(() => {
-    getArticles();
+    getMeetups();
   }, [])
 
   return (
      <div>
-     {allArticles.map(article => (
+     {allMeetups.map(article => (
       <div className='card' key={article.id}>
       <img src='https://res.cloudinary.com/dz4wtphvf/image/upload/v1558108161/course1_urjbkq.jpg' className='/' alt='meetup' />
-     <h4>{article.topic}</h4>
-     <p className='p'>{article.location}</p>
-     <p className='p'>{article.happening_on}</p>
-     <p className='p'>{article.tags}</p>
+      <hr />
+     <h3>{article.topic}</h3>
+     <p>{article.location}</p>
+     <p className='p'>{article.happening_on}<span>{article.tags}</span></p>
+     {/* <p className='p'>{article.tags}</p> */}
      </div>
      ))}
      </div>
@@ -26,7 +27,7 @@ export const Card = ({ getArticles, allArticles }) => {
 }
 
 const mapStateToProps = state => ({
-  allArticles: state.Article.AllArticles
+  allMeetups: state.Meetup.AllMeetups
 })
 
-export const ConnectedCard = connect(mapStateToProps, { getArticles: GetArticle })(Card)
+export const ConnectedCard = connect(mapStateToProps, { getMeetups: GetMeetups })(Card)
