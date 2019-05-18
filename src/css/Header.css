@@ -4,6 +4,7 @@
     padding: 20px 10px;
     position: fixed;
     width: 100%;
+    z-index: 50;
   }
   
   .header a {
