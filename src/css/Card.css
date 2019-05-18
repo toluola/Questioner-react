@@ -24,4 +24,8 @@ span {
       margin-left: 45px;
       width: 75%;
   }
+
+  span {
+    margin-left: 50px;
+  }
 }

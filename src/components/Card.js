@@ -18,8 +18,7 @@ export const Card = ({ getMeetups, allMeetups }) => {
       <hr />
      <h3>{article.topic}</h3>
      <p>{article.location}</p>
-     <p className='p'>{article.happening_on}<span>{article.tags}</span></p>
-     {/* <p className='p'>{article.tags}</p> */}
+     <p>{article.happening_on}<span>{article.tags}</span></p>
      </div>
      ))}
      </div>
