@@ -4,6 +4,7 @@
     padding: 20px 10px;
     position: fixed;
     width: 100%;
+    z-index: 50;
   }
   
   .header a {
@@ -35,7 +36,7 @@
       display: none;
   }
   
-@media screen and (max-width: 1000px) { 
+@media only screen and (max-width: 1000px) { 
     .header .header-right {
       float: none;
       text-align: left;

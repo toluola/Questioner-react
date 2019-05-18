@@ -10,7 +10,7 @@
   background-color: #99ce45;
   border: 0.125em solid #99ce45;
   color: #fff;
-  transition: background 0.4s, color 0.4s, border-color 0.4s;
+  /* transition: background 0.4s, color 0.4s, border-color 0.4s; */
 }
 
 .button:hover {
