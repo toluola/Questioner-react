@@ -1,0 +1,74 @@
+.copyright {
+  font-size: 0.875em;
+  margin: 2em 4em 0;
+  padding: 2em 2em;
+  color: #8e9ea9;
+  word-spacing: 1.5em;
+  margin-bottom: 50px;
+}
+.copyright:before {
+  content: "";
+  display: block;
+  height: 0;
+  overflow: hidden;
+  float: none;
+  clear: both;
+}
+
+.copyright * {
+  word-spacing: normal;
+}
+.copyright a {
+  color: #01affe;
+  text-decoration: none;
+  margin-left: 40px;
+}
+.copyright a:hover {
+  color: #3e4e5c;
+}
+
+.copyright .social {
+  float: right;
+  word-spacing: 1.5em;
+}
+
+.copyright .social .ico:before {
+  font-family: "ico";
+  font-size: 1.8em;
+}
+
+.copyright .social .fa:before {
+  display: inline-block;
+  font: normal normal normal 1.8em FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+span {
+  margin-left: 10px;
+}
+
+hr {
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .copyright a {
+    margin-left: 10px;
+  }
+
+  .copyright .social {
+    float: left;
+    margin-top: 10px;
+  }
+
+  .copyright {
+    font-size: 10px;
+  }
+
+  hr {
+    margin-bottom: 10px;
+    margin-top: -10px;
+  }
+}

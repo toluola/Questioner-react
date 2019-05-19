@@ -15,7 +15,7 @@
   font-weight: bold;
 }
 
-span {
+.span {
   margin-left: 150px;
 }
 
@@ -25,7 +25,7 @@ span {
       width: 75%;
   }
 
-  span {
+  .span {
     margin-left: 50px;
   }
 }

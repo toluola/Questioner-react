@@ -8,12 +8,13 @@ import './css/Hero.css';
 import './css/Button.css';
 import './css/Menu.css';
 import './css/Card.css';
-import { LandingPage } from './pages/landingPage';
+import './css/Footer.css';
+import { MainPage } from './pages';
 
 const App = () => 
   <Router>
     <Switch>
-      <Route path='/' exact component={LandingPage}></Route>
+      <Route path='/' exact component={MainPage}></Route>
     </Switch>
   </Router>
 
