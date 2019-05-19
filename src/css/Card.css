@@ -19,6 +19,14 @@
   margin-left: 150px;
 }
 
+.card-link {
+  color: #01b0fe;
+}
+
+.card-link:hover {
+  color: #212529
+}
+
 @media only screen and (max-width: 1000px) {
   .card {
       margin-left: 45px;
