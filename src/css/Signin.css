@@ -1,0 +1,17 @@
+.form-field {
+    width: 45%;
+    margin-top: 110px;
+}
+
+.form-label {
+    color: #01b0fe;
+}
+
+.form-button {
+    background-color: #01b0fe;
+    border-color: #01b0fe;
+}
+
+.form-input {
+    border-color: #01b0fe;
+}
