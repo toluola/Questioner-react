@@ -1,7 +1,11 @@
+/* eslint-disable no-console */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Formik } from "formik";
+import { connect } from 'react-redux';
 import * as Yup from "yup";
 import { Form, Button } from "react-bootstrap";
+import { userSignin } from '../state/actions';
 
 const schema = Yup.object({
   email: Yup.string().required().email(),
@@ -9,12 +13,11 @@ const schema = Yup.object({
 
 });
 
-export const Signin = () => {
+const Signin = props => { 
   return (
     <Formik
       validationSchema={schema}
-      // eslint-disable-next-line no-console
-      onSubmit={console.log}
+      onSubmit = {(values) => props.userSignin(values)}
       initialValues={{
         email: "",
         password: ""
@@ -74,3 +77,5 @@ export const Signin = () => {
     </Formik>
   );
 };
+
+export default connect(null, { userSignin })(Signin)
