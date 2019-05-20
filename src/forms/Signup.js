@@ -2,27 +2,31 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Formik } from "formik";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import * as Yup from "yup";
 import { Form, Button } from "react-bootstrap";
-import { userSignup } from '../state/actions';
+import { userSignup } from "../state/actions";
 
 const schema = Yup.object({
   firstname: Yup.string().required(),
   lastname: Yup.string().required(),
-  email: Yup.string().required().email(),
-  password: Yup.string().required().min('6').trim(),
-
+  email: Yup.string()
+    .required()
+    .email(),
+  password: Yup.string()
+    .required()
+    .min("6")
+    .trim()
 });
 
-const Signup = props => { 
+const Signup = props => {
   return (
     <Formik
       validationSchema={schema}
-      onSubmit = {(values) => props.userSignup(values)}
+      onSubmit={values => props.userSignup(values)}
       initialValues={{
         firstname: "",
-        lastname: "",  
+        lastname: "",
         email: "",
         password: ""
       }}
@@ -30,8 +34,8 @@ const Signup = props => {
       {({ handleSubmit, handleChange, touched, values, errors }) => (
         <div className="container form-field">
           <Form noValidate onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-            <Form.Label className="form-label">Firstname</Form.Label>
+            <Form.Group controlId="formBasicFirstname">
+              <Form.Label className="form-label">Firstname</Form.Label>
               <Form.Control
                 className="form-input"
                 type="text"
@@ -43,12 +47,14 @@ const Signup = props => {
                 isInvalid={!!errors.firstname}
               />
               <Form.Control.Feedback type="invalid">
-                  {errors.password}
-                </Form.Control.Feedback>
-                <Form.Control.Feedback type="valid">
-                  Looks Good!
-                </Form.Control.Feedback>
-                <Form.Label className="form-label">lastname</Form.Label>
+                {errors.password}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+                Looks Good!
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="formBasicLastname">
+              <Form.Label className="form-label">lastname</Form.Label>
               <Form.Control
                 className="form-input"
                 type="text"
@@ -60,11 +66,13 @@ const Signup = props => {
                 isInvalid={!!errors.lastname}
               />
               <Form.Control.Feedback type="invalid">
-                  {errors.lastname}
-                </Form.Control.Feedback>
-                <Form.Control.Feedback type="valid">
-                  Looks Good!
-                </Form.Control.Feedback>  
+                {errors.lastname}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+                Looks Good!
+              </Form.Control.Feedback>
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
               <Form.Label className="form-label">Email address</Form.Label>
               <Form.Control
                 className="form-input"
@@ -80,11 +88,11 @@ const Signup = props => {
                 We will never share your email with anyone else.
               </Form.Text>
               <Form.Control.Feedback type="invalid">
-                  {errors.email}
-                </Form.Control.Feedback>
-                <Form.Control.Feedback type="valid">
-                  Looks Good!
-                </Form.Control.Feedback>
+                {errors.email}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+                Looks Good!
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
@@ -100,11 +108,11 @@ const Signup = props => {
                 isInvalid={!!errors.password}
               />
               <Form.Control.Feedback type="invalid">
-                  {errors.password}
-                </Form.Control.Feedback>
-                <Form.Control.Feedback type="valid">
-                  Looks Good!
-                </Form.Control.Feedback>
+                {errors.password}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+                Looks Good!
+              </Form.Control.Feedback>
             </Form.Group>
             <Button className="form-button" type="submit">
               Submit
@@ -116,4 +124,7 @@ const Signup = props => {
   );
 };
 
-export default connect(null, { userSignup })(Signup);
+export default connect(
+  null,
+  { userSignup }
+)(Signup);
