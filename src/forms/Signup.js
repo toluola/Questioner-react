@@ -2,10 +2,10 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Formik } from "formik";
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import * as Yup from "yup";
 import { Form, Button } from "react-bootstrap";
-// import { userSignin } from '../state/actions';
+import { userSignup } from '../state/actions';
 
 const schema = Yup.object({
   firstname: Yup.string().required(),
@@ -19,7 +19,7 @@ const Signup = props => {
   return (
     <Formik
       validationSchema={schema}
-      onSubmit = {(values) => props.userSignin(values)}
+      onSubmit = {(values) => props.userSignup(values)}
       initialValues={{
         firstname: "",
         lastname: "",  
@@ -116,4 +116,4 @@ const Signup = props => {
   );
 };
 
-export default Signup;
+export default connect(null, { userSignup })(Signup);

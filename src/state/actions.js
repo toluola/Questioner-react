@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import axios from './axios';
-import { MEETUP_GET_SUCCESS, MEETUP_GET_FAILURE, SIGN_IN_SUCCESS } from './actionTypes';
+import { MEETUP_GET_SUCCESS, MEETUP_GET_FAILURE, SIGN_IN_SUCCESS, SIGN_UP_SUCCESS } from './actionTypes';
 
 export const MeetupSuccess = meetup => ({
   type: MEETUP_GET_SUCCESS,
@@ -14,6 +14,11 @@ export const MeetupFailure = error => ({
 
 export const signinSuccess = user => ({
     type: SIGN_IN_SUCCESS,
+    payload: user
+})
+
+export const signupSuccess = user => ({
+    type: SIGN_UP_SUCCESS,
     payload: user
 })
 
@@ -31,6 +36,15 @@ export const userSignin = formData => async dispatch => {
     try {
         const user = await axios.post('/auth/login', formData)
         dispatch(signinSuccess(user.data.token));
+    } catch (error) {
+        console.log(error.response);
+    }
+}
+
+export const userSignup = formData => async dispatch => {
+    try {
+        const register = await axios.post('/auth/signup', formData)
+        dispatch(signupSuccess(register.data.token));
     } catch (error) {
         console.log(error.response);
     }
