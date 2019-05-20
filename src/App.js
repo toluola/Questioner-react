@@ -9,12 +9,15 @@ import './css/Button.css';
 import './css/Menu.css';
 import './css/Card.css';
 import './css/Footer.css';
+import './css/Signin.css';
 import { MainPage } from './pages';
+import { SigninPage } from './pages/Signin';
 
 const App = () => 
   <Router>
     <Switch>
       <Route path='/' exact component={MainPage}></Route>
+      <Route path='/signin' exact component={SigninPage}></Route>
     </Switch>
   </Router>
 
