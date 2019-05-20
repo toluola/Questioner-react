@@ -27,10 +27,12 @@ export const GetMeetups = () => async dispatch => {
     }
 }
 
-export const userSignin = async formData => {
+export const userSignin = formData => async dispatch => {
     try {
+        console.log(formData);
         const user = await axios.post('/auth/login', formData)
         console.log(user.data);
+        dispatch(signinSuccess(user.data));
     } catch (error) {
         console.log(error.response);
     }
