@@ -28,7 +28,7 @@ export const Card = ({ getMeetups, allMeetups }) => {
 }
 
 const mapStateToProps = state => ({
-  allMeetups: state.Meetup.AllMeetups
+  allMeetups: state.State.AllMeetups
 })
 
 export const ConnectedCard = connect(mapStateToProps, { getMeetups: GetMeetups })(Card)
