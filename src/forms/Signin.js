@@ -2,22 +2,26 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Formik } from "formik";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import * as Yup from "yup";
-import { Form, Button } from "react-bootstrap";
-import { userSignin } from '../state/actions';
+import { Form, Button, Alert, Spinner } from "react-bootstrap";
+import { userSignin } from "../state/actions";
 
 const schema = Yup.object({
-  email: Yup.string().required().email(),
-  password: Yup.string().required().min('6').trim(),
-
+  email: Yup.string()
+    .required()
+    .email(),
+  password: Yup.string()
+    .required()
+    .min("6")
+    .trim()
 });
 
-const Signin = props => { 
+const Signin = props => {
   return (
     <Formik
       validationSchema={schema}
-      onSubmit = {(values) => props.userSignin(values)}
+      onSubmit={values => props.userSignin(values)}
       initialValues={{
         email: "",
         password: ""
@@ -26,6 +30,9 @@ const Signin = props => {
       {({ handleSubmit, handleChange, touched, values, errors }) => (
         <div className="container form-field">
           <Form noValidate onSubmit={handleSubmit}>
+            {props.loginState.errors.error && (
+              <Alert variant="danger">{props.loginState.errors.error}</Alert>
+            )}
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="form-label">Email address</Form.Label>
               <Form.Control
@@ -42,11 +49,11 @@ const Signin = props => {
                 We will never share your email with anyone else.
               </Form.Text>
               <Form.Control.Feedback type="invalid">
-                  {errors.email}
-                </Form.Control.Feedback>
-                <Form.Control.Feedback type="valid">
-                  Looks Good!
-                </Form.Control.Feedback>
+                {errors.email}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+                Looks Good!
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
@@ -62,13 +69,22 @@ const Signin = props => {
                 isInvalid={!!errors.password}
               />
               <Form.Control.Feedback type="invalid">
-                  {errors.password}
-                </Form.Control.Feedback>
-                <Form.Control.Feedback type="valid">
-                  Looks Good!
-                </Form.Control.Feedback>
+                {errors.password}
+              </Form.Control.Feedback>
+              <Form.Control.Feedback type="valid">
+                Looks Good!
+              </Form.Control.Feedback>
             </Form.Group>
             <Button className="form-button" type="submit">
+              {props.loginState.loadingState === "true" && (
+                <Spinner
+                  as="span"
+                  animation="grow"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              )}
               Submit
             </Button>
           </Form>
@@ -78,4 +94,9 @@ const Signin = props => {
   );
 };
 
-export default connect(null, { userSignin })(Signin)
+const mapStateToProps = state => ({ loginState: state.State });
+
+export default connect(
+  mapStateToProps,
+  { userSignin }
+)(Signin);

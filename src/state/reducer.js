@@ -5,7 +5,8 @@ import {
   SIGN_IN_SUCCESS,
   SIGN_UP_SUCCESS,
   SIGN_IN_FAILURE,
-  SIGN_UP_FAILURE
+  SIGN_UP_FAILURE,
+  LOADING_STATE
 } from "./actionTypes";
 
 export default (state = initialState, action) => {
@@ -39,6 +40,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         errors: action.payload
+      };
+    case LOADING_STATE:
+      return {
+        ...state,
+        loadingState: action.payload
       };
     default:
       return state;
