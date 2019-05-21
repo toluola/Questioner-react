@@ -1,10 +1,9 @@
-/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
 import * as Yup from "yup";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import { userSignup } from "../state/actions";
 
 const schema = Yup.object({
@@ -34,6 +33,9 @@ const Signup = props => {
       {({ handleSubmit, handleChange, touched, values, errors }) => (
         <div className="container form-field">
           <Form noValidate onSubmit={handleSubmit}>
+          {props.loginState.errors.error && (
+              <Alert variant="danger">{props.loginState.errors.error}</Alert>
+            )}
             <Form.Group controlId="formBasicFirstname">
               <Form.Label className="form-label">Firstname</Form.Label>
               <Form.Control
@@ -115,6 +117,15 @@ const Signup = props => {
               </Form.Control.Feedback>
             </Form.Group>
             <Button className="form-button" type="submit">
+            {props.loginState.loadingState === "true" && (
+                <Spinner
+                  as="span"
+                  animation="grow"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                />
+              )}
               Submit
             </Button>
           </Form>
@@ -124,7 +135,9 @@ const Signup = props => {
   );
 };
 
+const mapStateToProps = state => ({ loginState: state.State });
+
 export default connect(
-  null,
+    mapStateToProps,
   { userSignup }
 )(Signup);

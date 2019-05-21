@@ -1,5 +1,6 @@
 export const initialState = {
     AllMeetups: [],
     loggedinUser: {},
-    errors: {}
+    errors: {},
+    loadingState: ''
 };
