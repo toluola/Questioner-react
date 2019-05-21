@@ -2,6 +2,7 @@
 import React from "react";
 import { Formik } from "formik";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 import * as Yup from "yup";
 import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import { userSignup } from "../state/actions";
@@ -19,6 +20,7 @@ const schema = Yup.object({
 });
 
 const Signup = props => {
+  const { loginState } = props;
   return (
     <Formik
       validationSchema={schema}
@@ -33,8 +35,8 @@ const Signup = props => {
       {({ handleSubmit, handleChange, touched, values, errors }) => (
         <div className="container form-field">
           <Form noValidate onSubmit={handleSubmit}>
-          {props.loginState.errors.error && (
-              <Alert variant="danger">{props.loginState.errors.error}</Alert>
+            {loginState.errors.error && (
+              <Alert variant="danger">{loginState.errors.error}</Alert>
             )}
             <Form.Group controlId="formBasicFirstname">
               <Form.Label className="form-label">Firstname</Form.Label>
@@ -117,7 +119,7 @@ const Signup = props => {
               </Form.Control.Feedback>
             </Form.Group>
             <Button className="form-button" type="submit">
-            {props.loginState.loadingState === "true" && (
+              {loginState.loadingState === "true" && (
                 <Spinner
                   as="span"
                   animation="grow"
@@ -128,6 +130,7 @@ const Signup = props => {
               )}
               Submit
             </Button>
+            {loginState.loggedinUser.profile && <Redirect to='/' />}
           </Form>
         </div>
       )}
@@ -138,6 +141,6 @@ const Signup = props => {
 const mapStateToProps = state => ({ loginState: state.State });
 
 export default connect(
-    mapStateToProps,
+  mapStateToProps,
   { userSignup }
 )(Signup);

@@ -1,3 +1,4 @@
+import jwtDecode from 'jwt-decode';
 import axios from "./axios";
 import {
   MEETUP_GET_SUCCESS,
@@ -55,9 +56,10 @@ export const GetMeetups = () => async dispatch => {
 
 export const userSignin = formData => async dispatch => {
   try {
-    const user = await axios.post("/auth/login", formData);
     dispatch(loading("true"));
-    dispatch(signinSuccess(user.data.token));
+    const user = await axios.post("/auth/login", formData);
+    const decoded = jwtDecode(user.data.token);
+    dispatch(signinSuccess(decoded));
   } catch (error) {
     dispatch(loading("false"));
     dispatch(signinFailure(error.response.data.error));
@@ -66,9 +68,10 @@ export const userSignin = formData => async dispatch => {
 
 export const userSignup = formData => async dispatch => {
   try {
-    const register = await axios.post("/auth/signup", formData);
     dispatch(loading("true"));
-    dispatch(signupSuccess(register.data.token));
+    const register = await axios.post("/auth/signup", formData);
+    const decoded = jwtDecode(register.data.token);
+    dispatch(signinSuccess(decoded));
   } catch (error) {
     dispatch(loading("false"));
     dispatch(signupFailure(error.response.data.message));
