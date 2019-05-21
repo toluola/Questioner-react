@@ -10,7 +10,7 @@ import './css/Menu.css';
 import './css/Card.css';
 import './css/Footer.css';
 import './css/Signin.css';
-import { MainPage } from './pages';
+import MainPage  from './pages';
 import { SigninPage } from './pages/Signin';
 import { SignupPage } from './pages/Signup';
 

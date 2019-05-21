@@ -17,6 +17,11 @@
     line-height: 25px;
     border-radius: 4px;
   }
+
+  .title-bar {
+    padding-top: 130px;
+    padding-bottom: 20px;
+  }
   
   .header a.logo {
     font-size: 25px;
@@ -56,6 +61,6 @@
     }
 
     .header a.logo {
-        font-size: 10px;
+        font-size: 20px;
     }
   }

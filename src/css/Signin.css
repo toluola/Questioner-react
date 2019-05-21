@@ -26,6 +26,16 @@
    margin-left: 400px;
 }
 
+.signupForm {
+    padding-top: 140px;
+    width: 30%;
+    margin-left: 500px;
+}
+
+.title-bar-content {
+    margin-left: 550px;
+}
+
 @media only screen and (max-width: 1000px) { 
     .signinForm {
         margin-left: 70px;
@@ -35,5 +45,11 @@
 
     .form-field {
         width: 80%;
+    }
+
+    .title-bar-content {
+        margin-top: -50px;
+        margin-left: 60px;
+        font-size: 40px;
     }
 }
