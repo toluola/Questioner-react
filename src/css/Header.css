@@ -30,6 +30,7 @@
   
   .header-right {
     float: right;
+    margin-left: 40px;
   }
 
   .header .icon {

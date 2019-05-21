@@ -1,6 +1,5 @@
 .form-field {
-    width: 45%;
-    margin-top: 110px;
+    width: 70%;
 }
 
 .form-label {
@@ -12,6 +11,29 @@
     border-color: #01b0fe;
 }
 
+.form-button:hover {
+    background-color: #8e9ea9;
+    border-color: #8e9ea9;
+}
+
 .form-input {
     border-color: #01b0fe;
+}
+
+.signinForm {
+   padding-top: 200px;
+   padding-bottom: 100px;
+   margin-left: 400px;
+}
+
+@media only screen and (max-width: 1000px) { 
+    .signinForm {
+        margin-left: 70px;
+        padding-top: 140px;
+        padding-bottom: 50px;
+    }
+
+    .form-field {
+        width: 80%;
+    }
 }
