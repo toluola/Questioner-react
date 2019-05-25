@@ -7,6 +7,7 @@
 
 .meetup-title {
   text-align: center;
+  text-transform: capitalize;
   margin-top: -40px;
 }
 
@@ -26,8 +27,10 @@
 }
 
 .meetup-icon-two {
+  float: right;
   font-size: 30px;
-  margin-left: 350px;
+  margin-right: 20px;
+  text-transform: capitalize;
 }
 
 .meetup-textarea {
@@ -68,10 +71,19 @@
 .meetup-side-content {
   text-align: center;
   margin-top: 5px;
+  text-transform: capitalize;
 }
 
 .sidebar-meetup {
   margin-left: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  color: #01b0fe;
+}
+
+.sidebar-meetup:hover {
+  text-decoration: none;
+  color: #01b0fe;
 }
 
 .meetup-side-card-second {
@@ -82,9 +94,16 @@
 }
 
 .icon-one {
+  display: inline;
   margin-left: 8px;
 }
 
 .icon-two {
-  margin-left: 120px;
+  float: right;
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+
+.hr {
+  margin-bottom: 5px;
 }

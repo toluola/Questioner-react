@@ -12,14 +12,14 @@ export const Card = ({ getMeetups, allMeetups }) => {
 
   return (
      <div>
-     {allMeetups.map(article => (
-       <a href='#' className='card-link'>
-      <div className='card' key={article.id}>
+     {allMeetups.map(meetup => (
+       <a href={`meetup/${meetup.id}`} className='card-link'>
+      <div className='card' key={meetup.id}>
       <img src='https://res.cloudinary.com/dz4wtphvf/image/upload/v1558108161/course1_urjbkq.jpg' className='/' alt='meetup' />
       <hr />
-     <h3>{article.topic}</h3>
-     <p>{article.location}</p>
-     <p>{article.happening_on}<span className='span'>{article.tags}</span></p>
+     <h3>{meetup.topic}</h3>
+     <p>{meetup.location}</p>
+     <p>{meetup.happening_on}<span className='span'>{meetup.tags}</span></p>
      </div>
      </a>
      ))}

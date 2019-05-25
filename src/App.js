@@ -22,7 +22,7 @@ const App = () =>
       <Route path='/' exact component={MainPage}></Route>
       <Route path='/signin' exact component={SigninPage}></Route>
       <Route path='/signup' exact component={SignupPage}></Route>
-      <Route path='/meetup' exact component={singleMeetupPage}></Route>
+      <Route path='/meetup/:id' exact component={singleMeetupPage}></Route>
     </Switch>
   </Router>
 
