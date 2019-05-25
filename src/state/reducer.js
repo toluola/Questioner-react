@@ -6,7 +6,9 @@ import {
   SIGN_UP_SUCCESS,
   SIGN_IN_FAILURE,
   SIGN_UP_FAILURE,
-  LOADING_STATE
+  LOADING_STATE,
+  SINGLE_MEETUP_SUCCESS,
+  GET_MEETUP_QUESTION
 } from "./actionTypes";
 
 export default (state = initialState, action) => {
@@ -45,6 +47,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loadingState: action.payload
+      };
+    case SINGLE_MEETUP_SUCCESS:
+      return {
+        ...state,
+        singleMeetup: action.payload
+      };
+    case GET_MEETUP_QUESTION:
+      return {
+        ...state,
+        questions: action.payload
       };
     default:
       return state;

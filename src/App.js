@@ -10,9 +10,11 @@ import './css/Menu.css';
 import './css/Card.css';
 import './css/Footer.css';
 import './css/Signin.css';
-import { MainPage } from './pages';
+import './css/Meetup.css';
+import MainPage  from './pages';
 import { SigninPage } from './pages/Signin';
 import { SignupPage } from './pages/Signup';
+import singleMeetupPage from './pages/SingleMeetup';
 
 const App = () => 
   <Router>
@@ -20,6 +22,7 @@ const App = () =>
       <Route path='/' exact component={MainPage}></Route>
       <Route path='/signin' exact component={SigninPage}></Route>
       <Route path='/signup' exact component={SignupPage}></Route>
+      <Route path='/meetup/:id' exact component={singleMeetupPage}></Route>
     </Switch>
   </Router>
 

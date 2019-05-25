@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const authToken = localStorage.getItem('ah-token');
+const authToken = localStorage.getItem('questioner-token');
 
 const Axios = axios.create({
   baseURL: 'http://localhost:4000/api/v1',
@@ -9,6 +9,6 @@ const Axios = axios.create({
   }
 });
 
-Axios.defaults.headers.common.Authorization = authToken;
+Axios.defaults.headers.common.authorization = authToken;
 
 export default Axios;

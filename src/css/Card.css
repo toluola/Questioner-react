@@ -20,11 +20,11 @@
 }
 
 .card-link {
-  color: #01b0fe;
+  color: #6c757d;
 }
 
 .card-link:hover {
-  color: #212529
+  color: #01b0fe;
 }
 
 @media only screen and (max-width: 1000px) {

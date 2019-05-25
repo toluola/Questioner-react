@@ -33,7 +33,7 @@ const Signup = props => {
       }}
     >
       {({ handleSubmit, handleChange, touched, values, errors }) => (
-        <div className="container form-field">
+        <div className="signupForm form-field">
           <Form noValidate onSubmit={handleSubmit}>
             {loginState.errors.error && (
               <Alert variant="danger">{loginState.errors.error}</Alert>
@@ -58,7 +58,7 @@ const Signup = props => {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="formBasicLastname">
-              <Form.Label className="form-label">lastname</Form.Label>
+              <Form.Label className="form-label">Lastname</Form.Label>
               <Form.Control
                 className="form-input"
                 type="text"
@@ -77,7 +77,7 @@ const Signup = props => {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label className="form-label">Email address</Form.Label>
+              <Form.Label className="form-label">Email Address</Form.Label>
               <Form.Control
                 className="form-input"
                 type="email"

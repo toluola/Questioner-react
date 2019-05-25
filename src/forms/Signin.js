@@ -30,8 +30,8 @@ const Signin = props => {
       }}
     >
       {({ handleSubmit, handleChange, touched, values, errors }) => (
-        <div className="container form-field">
-          <Form noValidate onSubmit={handleSubmit}>
+        <div className="form-field">
+          <Form noValidate onSubmit={handleSubmit} className='signinForm'>
             {loginState.errors.error && (
               <Alert variant="danger">{loginState.errors.error}</Alert>
             )}
