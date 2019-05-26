@@ -13,6 +13,7 @@
 
 .meetup-details {
   border: 0.5px solid #e1e1e1;
+  margin-left: 200px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -52,7 +53,7 @@
 }
 
 .meetup-side-card {
-  border: 0.5px solid #e1e1e1;
+  border: 0.5px solid #01b0fe;
   display: grid;
   margin-left: 15px;
   grid-template-columns: 20% 80%;
@@ -87,7 +88,7 @@
 }
 
 .meetup-side-card-second {
-  border: 0.5px solid #e1e1e1;
+  border: 0.5px solid #01b0fe;
   margin-right: 15px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -106,4 +107,22 @@
 
 .hr {
   margin-bottom: 5px;
+  background-color: #01b0fe;
+}
+
+.question-link {
+  float: right;
+  color: #01b0fe;
+}
+
+.question-link:hover {
+  color: #6c757d;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1000px) {
+  .meetup-details {
+    margin-left: 10px;
+    width: 100%;
+  }
 }

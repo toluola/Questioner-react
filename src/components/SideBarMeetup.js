@@ -8,7 +8,7 @@ const SideBarMeetup = ({ getMeetup, meetups }) => {
     getMeetup();
   }, [getMeetup]);
   return (
-      <div>
+      <div className="sidebar-meetup">
           <h3 className="meetup-heading">Upcoming Meetups</h3>
           <hr className='hr' />
           {meetups.slice(0, 5).map(meetup => (
