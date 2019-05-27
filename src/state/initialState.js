@@ -4,5 +4,6 @@ export const initialState = {
     errors: {},
     loadingState: '',
     singleMeetup: [],
-    questions: []
+    questions: [],
+    comments: []
 };

@@ -11,7 +11,7 @@ const MainPage = ({ isAuthenticated }) => {
   return (
     <div>
       <Header />
-      {isAuthenticated.profile ? <TitleBar /> : <div><Hero /> <Menu /></div>}
+      {isAuthenticated.profile ? <TitleBar content='All Meetups'/> : <div><Hero /> <Menu /></div>}
       <ConnectedCard />
       <Footer />
     </div>

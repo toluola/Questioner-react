@@ -39,7 +39,7 @@ const MeetupDetails = ({ match, getOneMeetup, singleMeetup }) => {
                 className="meetup-textarea"
                 placeholder="Questions..."
               />
-              <a href='thrnf' className='question-link'>View Questions</a>
+              <a href={`${meetup.id}/questions`} className='question-link'>View Questions</a>
               <ButtonToolbar>
                 <Button variant="outline-secondary" className="meetup-button">
                   Ask

@@ -8,7 +8,8 @@ import {
   SIGN_UP_FAILURE,
   LOADING_STATE,
   SINGLE_MEETUP_SUCCESS,
-  GET_MEETUP_QUESTION
+  GET_MEETUP_QUESTION,
+  GET_QUESTION_COMMENT
 } from "./actionTypes";
 
 export default (state = initialState, action) => {
@@ -57,6 +58,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         questions: action.payload
+      };
+    case GET_QUESTION_COMMENT:
+      return {
+        ...state,
+        comments: action.payload
       };
     default:
       return state;

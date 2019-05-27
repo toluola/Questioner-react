@@ -1,0 +1,49 @@
+.comment-body {
+    background-color: #01b0fe;
+    padding: 5px;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.comment-date {
+    margin-left: 583px;
+    margin-top: 10px;
+    color: #01b0fe;
+}
+
+.comment-profile {
+    border: 1px solid #01b0fe;
+}
+
+.comment-image {
+    margin-left: 550px;
+    border-radius: 5px;
+}
+
+.comment-container {
+    margin-top: 50px;
+}
+
+.space {
+    padding-top: 100px;
+}
+
+.no-comment {
+    margin-left: 200px;
+    color: #01b0fe;
+    padding-top: 40px;
+}
+
+.comment-textarea {
+    width: 30%;
+    margin-left: 590px;
+}
+
+.comment-button {
+    margin-left: 590px; 
+    margin-bottom: 60px;
+    margin-top: 10px;
+}
