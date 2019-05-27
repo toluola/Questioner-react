@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TitleBar = () => {
+const TitleBar = ({ content }) => {
     return (
         <div className='title-bar'>
-            <h1 className='title-bar-content'>All Meetups</h1>
+            <h1 className='title-bar-content'>{content}</h1>
             <hr />
         </div>
     )

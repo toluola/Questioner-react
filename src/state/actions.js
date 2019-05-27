@@ -1,4 +1,4 @@
-import jwtDecode from 'jwt-decode';
+import jwtDecode from "jwt-decode";
 import axios from "./axios";
 import {
   MEETUP_GET_SUCCESS,
@@ -9,7 +9,8 @@ import {
   SIGN_UP_FAILURE,
   LOADING_STATE,
   SINGLE_MEETUP_SUCCESS,
-  GET_MEETUP_QUESTION
+  GET_MEETUP_QUESTION,
+  GET_QUESTION_COMMENT
 } from "./actionTypes";
 
 export const MeetupSuccess = meetup => ({
@@ -23,9 +24,9 @@ export const MeetupFailure = error => ({
 });
 
 export const singleMeetupSuccess = meetup => ({
-    type: SINGLE_MEETUP_SUCCESS,
-    payload: meetup
-})
+  type: SINGLE_MEETUP_SUCCESS,
+  payload: meetup
+});
 
 export const signinSuccess = user => ({
   type: SIGN_IN_SUCCESS,
@@ -53,9 +54,14 @@ export const loading = state => ({
 });
 
 export const getMeetupQuestions = data => ({
-    type: GET_MEETUP_QUESTION,
-    payload: data
-})
+  type: GET_MEETUP_QUESTION,
+  payload: data
+});
+
+export const getQuestionComment = data => ({
+  type: GET_QUESTION_COMMENT,
+  payload: data
+});
 
 export const GetMeetups = () => async dispatch => {
   try {
@@ -70,9 +76,9 @@ export const userSignin = formData => async dispatch => {
   try {
     dispatch(loading("true"));
     const user = await axios.post("/auth/login", formData);
-    localStorage.setItem('questioner-token', user.data.token)
     const decoded = jwtDecode(user.data.token);
     dispatch(signinSuccess(decoded));
+    localStorage.setItem("questionerToken", user.data.token);
   } catch (error) {
     dispatch(loading("false"));
     dispatch(signinFailure(error.response.data.error));
@@ -85,6 +91,7 @@ export const userSignup = formData => async dispatch => {
     const register = await axios.post("/auth/signup", formData);
     const decoded = jwtDecode(register.data.token);
     dispatch(signinSuccess(decoded));
+    localStorage.setItem("questionerToken", register.data.token);
   } catch (error) {
     dispatch(loading("false"));
     dispatch(signupFailure(error.response.data.message));
@@ -92,19 +99,28 @@ export const userSignup = formData => async dispatch => {
 };
 
 export const getSingleMeetup = id => async dispatch => {
-    try {
-        const getMeetup = await axios.get(`/meetups/${id}`)
-        dispatch(singleMeetupSuccess(getMeetup.data.data))
-    } catch (error) {
-        throw new Error(error.response);
-    }
-}
+  try {
+    const getMeetup = await axios.get(`/meetups/${id}`);
+    dispatch(singleMeetupSuccess(getMeetup.data.data));
+  } catch (error) {
+    throw new Error(error.response);
+  }
+};
 
-export const getQuestions = (meetupId) => async dispatch => {
-    try {
-        const getQuestion = await axios.get(`/questions/${meetupId}`)
-        dispatch(getMeetupQuestions(getQuestion.data.data));
-    } catch (error) {
-        throw new Error(error.response);
-    }
-}
+export const getQuestions = meetupId => async dispatch => {
+  try {
+    const getQuestion = await axios.get(`/questions/${meetupId}`);
+    dispatch(getMeetupQuestions(getQuestion.data.data));
+  } catch (error) {
+    throw new Error(error.response);
+  }
+};
+
+export const getComments = questionId => async dispatch => {
+  try {
+    const getComment = await axios.get(`/comments/${questionId}`);
+    dispatch(getQuestionComment(getComment.data.data));
+  } catch (error) {
+    throw new Error(error.response);
+  }
+};

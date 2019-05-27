@@ -120,6 +120,29 @@
   text-decoration: none;
 }
 
+.question-meetup {
+  text-align: center;
+  border: 1px solid #e1e1e1;
+  background: white;
+  float: left;
+  width: 25%;
+  margin-left: 85px;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  margin-bottom: 35px;
+  border-radius: 5px;
+}
+
+.question-link {
+  float: right;
+  margin-right: 5px;
+}
+
+.no-question {
+  margin-left: 400px;
+  color: #01b0fe;
+}
+
 @media only screen and (max-width: 1000px) {
   .meetup-details {
     margin-left: 10px;

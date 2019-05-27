@@ -1,42 +1,45 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 import { getQuestions } from "../state/actions";
 
 const SideBarQuestion = ({ match, singleQuestion, questions }) => {
-  const { id } = match.params;
+  const { meetupId } = match.params;
   useEffect(() => {
-    singleQuestion(id);
-  }, [id, singleQuestion]);
+    singleQuestion(meetupId);
+  }, [meetupId, singleQuestion]);
   return (
-    <div className="sidebar-meetup">
-      <h3 className="meetup-heading">Top Questions</h3>
-      <hr className='hr'/>
-      {questions.map(question => (
-       <a href='THE' className="sidebar-meetup">
-         <div className="meetup-side-card">
-        <div>
-          <i className="fa fa-arrow-up meetup-arrow" aria-hidden="true">
-            {question.upvotes}
-          </i>
-          <i className="fa fa-arrow-down meetup-arrow" aria-hidden="true">
-            {question.downvotes}
-          </i>
-          {/* <i className="fa fa-comments meetup-arrow" aria-hidden="true">
+    <div>
+      {questions[0] ? (
+        questions.map(question => (
+          <div className="question-meetup">
+            <div>
+              <i className="fa fa-arrow-up meetup-arrow" aria-hidden="true">
+                {question.upvotes}
+              </i>
+              <i className="fa fa-arrow-down meetup-arrow" aria-hidden="true">
+                {question.downvotes}
+              </i>
+              {/* <i className="fa fa-comments meetup-arrow" aria-hidden="true">
             23
           </i> */}
-        </div>
-        <div>
-          <p className="meetup-side-content">{question.body}</p>
-        </div>
-      </div>
-       </a> 
-      ))}    
+            </div>
+            <div>
+              <p className="meetup-side-content">{question.body}</p>
+              <a href={`/${question.id}/comments`} className="question-link">
+                View Comments
+              </a>
+            </div>
+          </div>
+        ))
+      ) : (
+        <h1 className="no-question"> No Questions on this meetup yet...</h1>
+      )}
     </div>
   );
 };
 
-const mapStateToProps = state => ({ questions: state.State.questions })
+const mapStateToProps = state => ({ questions: state.State.questions });
 
 export default connect(
   mapStateToProps,
