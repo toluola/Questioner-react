@@ -47,3 +47,22 @@
     margin-bottom: 60px;
     margin-top: 10px;
 }
+
+@media only screen and (max-width: 1000px) {
+    .comment-image {
+        margin-left: 50px;
+    }
+
+    .comment-date {
+        margin-left: 85px;
+    }
+
+    .comment-textarea {
+        width: 50%;
+        margin-left: 85px;
+    }
+
+    .comment-button {
+        margin-left: 85px; 
+    }
+}
