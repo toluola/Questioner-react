@@ -11,7 +11,9 @@ import {
   GET_MEETUP_QUESTION,
   GET_QUESTION_COMMENT,
   POST_MEETUP_QUESTION,
-  POST_QUESTION_COMMENT
+  POST_QUESTION_COMMENT,
+  UPVOTE_QUESTION,
+  DOWNVOTE_QUESTION
 } from "./actionTypes";
 
 export default (state = initialState, action) => {
@@ -75,6 +77,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         postComment: action.payload
+      };
+    case UPVOTE_QUESTION:
+      return {
+        ...state,
+        upvote: action.payload
+      };
+    case DOWNVOTE_QUESTION:
+      return {
+        ...state,
+        downvote: action.payload
       };
     default:
       return state;

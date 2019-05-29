@@ -7,5 +7,7 @@ export const initialState = {
     questions: [],
     postQuestion: '',
     comments: [],
-    postComment: ''
+    postComment: '',
+    upvote: '',
+    downvote: ''
 };

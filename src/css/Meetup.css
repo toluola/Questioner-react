@@ -50,6 +50,16 @@
 .meetup-container {
   padding-top: 100px;
   color: #6c757d;
+  display: grid;
+  grid-template-columns: 70% 30%;
+}
+
+.details-meetup {
+  margin-right: 30px;
+}
+
+.details-side {
+  margin-right: 20px;
 }
 
 .meetup-side-card {
@@ -143,9 +153,44 @@
   color: #01b0fe;
 }
 
+.icon-meetup-link {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 1000px) {
   .meetup-details {
     margin-left: 10px;
     width: 100%;
+  }
+
+  .meetup-container {
+    display: block;
+  }
+
+  .meetup-title {
+    margin-top: 5px;
+    font-size: 20px;
+  }
+
+  .meetup-icon {
+    font-size: 20px;
+  }
+
+  .meetup-icon-two {
+    font-size: 20px;
+  }
+
+  .sidebar-meetup {
+    margin-top: 20px;
+    font-size: 15px;
+  }
+
+  .hr {
+    display: none;
+  }
+
+  .meetup-heading {
+    font-size: 25px;
+    margin-bottom: -10px;
   }
 }

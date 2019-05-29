@@ -46,7 +46,7 @@ const Comment = ({ getQuestionComment, match, comments, commentPost }) => {
             />
             <span className="comment-body">{comment.body}</span>
             <p className="comment-date">
-              {moment(comment.created_on).fromNow()}
+              {moment(comment.created_at).fromNow()}
             </p>
           </div>
         ))
