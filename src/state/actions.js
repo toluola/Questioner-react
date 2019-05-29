@@ -10,7 +10,9 @@ import {
   LOADING_STATE,
   SINGLE_MEETUP_SUCCESS,
   GET_MEETUP_QUESTION,
-  GET_QUESTION_COMMENT
+  GET_QUESTION_COMMENT,
+  POST_MEETUP_QUESTION,
+  POST_QUESTION_COMMENT,
 } from "./actionTypes";
 
 export const MeetupSuccess = meetup => ({
@@ -60,6 +62,16 @@ export const getMeetupQuestions = data => ({
 
 export const getQuestionComment = data => ({
   type: GET_QUESTION_COMMENT,
+  payload: data
+});
+
+export const postMeetupQuestion = data => ({
+  type: POST_MEETUP_QUESTION,
+  payload: data
+});
+
+export const postQuestionComment = data => ({
+  type: POST_QUESTION_COMMENT,
   payload: data
 });
 
@@ -120,6 +132,24 @@ export const getComments = questionId => async dispatch => {
   try {
     const getComment = await axios.get(`/comments/${questionId}`);
     dispatch(getQuestionComment(getComment.data.data));
+  } catch (error) {
+    throw new Error(error.response);
+  }
+};
+
+export const postQuestion = (meetupId, body) => async dispatch => {
+  try {
+    const question = await axios.post(`/questions/${meetupId}`, body );
+    dispatch(postMeetupQuestion(question.data.message));
+  } catch (error) {
+    throw new Error(error.response);
+  }
+};
+
+export const postComment = (questionId, body) => async dispatch => {
+  try {
+    const comment = await axios.post(`/comments/${questionId}`, body );
+    dispatch(postQuestionComment(comment.data.message));
   } catch (error) {
     throw new Error(error.response);
   }

@@ -9,7 +9,9 @@ import {
   LOADING_STATE,
   SINGLE_MEETUP_SUCCESS,
   GET_MEETUP_QUESTION,
-  GET_QUESTION_COMMENT
+  GET_QUESTION_COMMENT,
+  POST_MEETUP_QUESTION,
+  POST_QUESTION_COMMENT
 } from "./actionTypes";
 
 export default (state = initialState, action) => {
@@ -63,6 +65,16 @@ export default (state = initialState, action) => {
       return {
         ...state,
         comments: action.payload
+      };
+    case POST_MEETUP_QUESTION:
+      return {
+        ...state,
+        postQuestion: action.payload
+      };
+    case POST_QUESTION_COMMENT:
+      return {
+        ...state,
+        postComment: action.payload
       };
     default:
       return state;
