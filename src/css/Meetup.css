@@ -173,11 +173,16 @@
   }
 
   .meetup-icon {
-    font-size: 20px;
+    font-size: 18px;
+    text-align: center;
+    display: block
   }
 
   .meetup-icon-two {
-    font-size: 20px;
+    font-size: 15px;
+    text-align: center;
+    float: none;
+    margin-left: 95px;
   }
 
   .sidebar-meetup {
@@ -192,5 +197,15 @@
   .meetup-heading {
     font-size: 25px;
     margin-bottom: -10px;
+  }
+
+  .question-meetup {
+    width: 75%;
+    margin-left: 35px;
+    font-size: 15px;
+  }
+
+  .meetup-textarea {
+    margin-top: 10px;
   }
 }

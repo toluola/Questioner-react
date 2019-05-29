@@ -54,7 +54,7 @@ const Comment = ({ getQuestionComment, match, comments, commentPost }) => {
       <Form onSubmit={handleSubmit}>
         <Form.Control
           as="textarea"
-          rows="3"
+          rows="2"
           className="comment-textarea"
           placeholder="comments..."
           onChange={handleChange}

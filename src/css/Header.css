@@ -21,6 +21,7 @@
   .title-bar {
     padding-top: 130px;
     padding-bottom: 20px;
+    color: #03b4fe
   }
   
   .header a.logo {
@@ -62,5 +63,9 @@
 
     .header a.logo {
         font-size: 20px;
+    }
+
+    .title-bar {
+      margin-left: -30px;
     }
   }
