@@ -42,6 +42,10 @@
   .header .icon {
       display: none;
   }
+
+  .index-link {
+    
+  }
   
 @media only screen and (max-width: 1000px) { 
     .header .header-right {

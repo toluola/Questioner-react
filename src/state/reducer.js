@@ -13,7 +13,9 @@ import {
   POST_MEETUP_QUESTION,
   POST_QUESTION_COMMENT,
   UPVOTE_QUESTION,
-  DOWNVOTE_QUESTION
+  DOWNVOTE_QUESTION,
+  LOGOUT,
+  ERROR
 } from "./actionTypes";
 
 export default (state = initialState, action) => {
@@ -88,6 +90,13 @@ export default (state = initialState, action) => {
         ...state,
         downvote: action.payload
       };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload
+      };
+    case LOGOUT:
+      return state;
     default:
       return state;
   }
