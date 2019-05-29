@@ -13,12 +13,24 @@ import {
   GET_QUESTION_COMMENT,
   POST_MEETUP_QUESTION,
   POST_QUESTION_COMMENT,
+  UPVOTE_QUESTION,
+  DOWNVOTE_QUESTION
 } from "./actionTypes";
 
 export const MeetupSuccess = meetup => ({
   type: MEETUP_GET_SUCCESS,
   meetup
 });
+
+export const QuestionUpvote = data => ({
+type: UPVOTE_QUESTION,
+payload: data
+})
+
+export const QuestionDownvote = data => ({
+  type: DOWNVOTE_QUESTION,
+  payload: data
+})
 
 export const MeetupFailure = error => ({
   type: MEETUP_GET_FAILURE,
@@ -154,3 +166,21 @@ export const postComment = (questionId, body) => async dispatch => {
     throw new Error(error.response);
   }
 };
+
+export const upvoteQuestion = questionId => async dispatch => {
+  try {
+    const upvote = await axios.patch(`questions/upvote/${questionId}`)
+    dispatch(QuestionUpvote(upvote.data.message));
+  } catch (error) {
+    dispatch(QuestionUpvote(error.response.data.message));
+  }
+}
+
+export const downvoteQuestion = questionId => async dispatch => {
+  try {
+    const downvote = await axios.patch(`questions/downvote/${questionId}`)
+    dispatch(QuestionDownvote(downvote.data.message));
+  } catch (error) {
+    dispatch(QuestionDownvote(error.response.data.message));
+  }
+}
