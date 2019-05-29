@@ -5,5 +5,7 @@ export const initialState = {
     loadingState: '',
     singleMeetup: [],
     questions: [],
-    comments: []
+    postQuestion: '',
+    comments: [],
+    postComment: ''
 };

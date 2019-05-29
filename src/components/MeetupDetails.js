@@ -1,14 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { Form, ButtonToolbar, Button } from "react-bootstrap";
-import { getSingleMeetup } from "../state/actions";
+import { Form, Button } from "react-bootstrap";
+import { getSingleMeetup, postQuestion } from "../state/actions";
 
-const MeetupDetails = ({ match, getOneMeetup, singleMeetup }) => {
+const MeetupDetails = ({ match, getOneMeetup, singleMeetup, question }) => {
   const { id } = match.params;
   useEffect(() => {
     getOneMeetup(id);
   }, [getOneMeetup, id]);
+  const [textareaData, setTextareaData] = useState({
+    body: ""
+  });
+
+  const handleChange = event => {
+    event.persist();
+    setTextareaData(() => ({
+      ...textareaData,
+      [event.target.name]: event.target.value
+    }));
+  };
+
+  const { body } = textareaData;
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+    await question(id, { body });
+    setTextareaData(() => ({ body: "" }));
+  };
   return (
     <div className="meetup-details">
       {singleMeetup.map(meetup => (
@@ -28,7 +47,7 @@ const MeetupDetails = ({ match, getOneMeetup, singleMeetup }) => {
             {" "}
             {meetup.location}
           </i>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group
               controlId="exampleForm.ControlTextarea1"
               className="meetup-form"
@@ -38,13 +57,20 @@ const MeetupDetails = ({ match, getOneMeetup, singleMeetup }) => {
                 rows="3"
                 className="meetup-textarea"
                 placeholder="Questions..."
+                onChange={handleChange}
+                name="body"
+                value={body}
               />
-              <a href={`${meetup.id}/questions`} className='question-link'>View Questions</a>
-              <ButtonToolbar>
-                <Button variant="outline-secondary" className="meetup-button">
-                  Ask
-                </Button>
-              </ButtonToolbar>
+              <a href={`${meetup.id}/questions`} className="question-link">
+                View Questions
+              </a>
+              <Button
+                variant="outline-secondary"
+                className="meetup-button"
+                type="submit"
+              >
+                Ask
+              </Button>
             </Form.Group>
           </Form>
         </div>
@@ -59,5 +85,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getOneMeetup: getSingleMeetup }
+  { getOneMeetup: getSingleMeetup, question: postQuestion }
 )(withRouter(MeetupDetails));
