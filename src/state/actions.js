@@ -14,13 +14,20 @@ import {
   POST_MEETUP_QUESTION,
   POST_QUESTION_COMMENT,
   UPVOTE_QUESTION,
-  DOWNVOTE_QUESTION
+  DOWNVOTE_QUESTION,
+  LOGOUT,
+  ERROR
 } from "./actionTypes";
 
 export const MeetupSuccess = meetup => ({
   type: MEETUP_GET_SUCCESS,
   meetup
 });
+
+export const errors = error => ({
+  type: ERROR,
+  payload: error
+})
 
 export const QuestionUpvote = data => ({
 type: UPVOTE_QUESTION,
@@ -56,6 +63,10 @@ export const signupFailure = error => ({
   type: SIGN_UP_FAILURE,
   payload: { error }
 });
+
+export const logout = () => ({
+  type: LOGOUT
+})
 
 export const signupSuccess = user => ({
   type: SIGN_UP_SUCCESS,
@@ -127,7 +138,7 @@ export const getSingleMeetup = id => async dispatch => {
     const getMeetup = await axios.get(`/meetups/${id}`);
     dispatch(singleMeetupSuccess(getMeetup.data.data));
   } catch (error) {
-    throw new Error(error.response);
+    dispatch(errors(error.response.data.message));
   }
 };
 
@@ -183,4 +194,9 @@ export const downvoteQuestion = questionId => async dispatch => {
   } catch (error) {
     dispatch(QuestionDownvote(error.response.data.message));
   }
+}
+
+export const userLogout = () => dispatch => {
+  localStorage.removeItem('questionerToken');
+  dispatch(logout());
 }

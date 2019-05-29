@@ -1,9 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React from "react";
 
-export const HeaderLink = props => {
-    const { links } = props
-    return (
-        <a href={links}>login</a>
-    );
-  };
+const HeaderLink = ()=> {
+  return <a href='/signin' className='index-link header'>login</a>;
+};
+
+export default HeaderLink;

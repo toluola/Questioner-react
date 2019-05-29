@@ -1,6 +1,6 @@
 import React from "react";
 import MeetupDetails from '../components/MeetupDetails';
-import { Header } from '../components/Header';
+import Header from '../components/Header';
 import { Footer } from '../components/Footer';
 import SideBarMeetup from '../components/SideBarMeetup';
 

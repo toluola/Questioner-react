@@ -9,5 +9,6 @@ export const initialState = {
     comments: [],
     postComment: '',
     upvote: '',
-    downvote: ''
+    downvote: '',
+    error: ''
 };
