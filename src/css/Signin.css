@@ -52,4 +52,9 @@
         margin-left: 60px;
         font-size: 40px;
     }
+
+    .signupForm {
+        width: 70%;
+        margin-left: 40px;
+    }
 }
