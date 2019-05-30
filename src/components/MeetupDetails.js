@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import { getSingleMeetup, postQuestion } from "../state/actions";
 
-const MeetupDetails = ({ match, getOneMeetup, singleMeetup, question }) => {
+export const Meetup = ({ match, getOneMeetup, singleMeetup, question }) => {
   const { id } = match.params;
   useEffect(() => {
     getOneMeetup(id);
@@ -83,7 +83,7 @@ const mapStateToProps = state => ({
   singleMeetup: state.State.singleMeetup
 });
 
-export default connect(
+export const  MeetupDetails = connect(
   mapStateToProps,
   { getOneMeetup: getSingleMeetup, question: postQuestion }
-)(withRouter(MeetupDetails));
+)(withRouter(Meetup));

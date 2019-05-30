@@ -3,21 +3,22 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { shallow } from 'enzyme';
-import { Card } from '../Card';
+import { mount } from 'enzyme';
+import { CommentComponent } from '../Comment';
 
 const mockStore = configureMockStore([thunk]);
 const store = mockStore(jest.fn());
 
 const props = {
-    getMeetups: jest.fn(),
-    allMeetups: jest.fn()
+    getQuestionComment: jest.fn(),
+    comments: [jest.fn()],
+    commentPost: jest.fn(),
+    match: {params: { id: '2'}}
 }
 
 describe('Should render index component', () => {
     test('<Button /> component is rendered', () => {
-    const CommentComponent = shallow(<Provider store={store}><BrowserRouter><Card {...props}/></BrowserRouter></Provider>);
-        expect(CommentComponent).toBeTruthy();
-        expect(CommentComponent).toMatchSnapshot();
+    const CommentComponentTest = mount(<Provider store={store}><BrowserRouter><CommentComponent {...props}/></BrowserRouter></Provider>);
+        expect(CommentComponentTest).toBeTruthy();
     });
 });

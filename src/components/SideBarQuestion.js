@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { getQuestions, upvoteQuestion, downvoteQuestion } from "../state/actions";
 
-const SideBarQuestion = ({ match, singleQuestion, questions, upvote, upvotes, downvote, downvotes}) => {
+export const Question = ({ match, singleQuestion, questions, upvote, upvotes, downvote, downvotes}) => {
   const { meetupId } = match.params;
   useEffect(() => {
     singleQuestion(meetupId);
@@ -59,7 +59,7 @@ const mapStateToProps = state => ({
   downvotes: state.State.downvote
 });
 
-export default connect(
+export const  SideBarQuestion = connect(
   mapStateToProps,
   { singleQuestion: getQuestions, upvote: upvoteQuestion, downvote: downvoteQuestion }
-)(withRouter(SideBarQuestion));
+)(withRouter(Question));

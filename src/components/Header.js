@@ -5,7 +5,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { userLogout } from "../state/actions";
 
-const Header = ({ isAuthenticated, logout }) => {
+export const HeaderComponent = ({ isAuthenticated, logout }) => {
   return (
     <div className="header">
       <a href="/" className="logo">
@@ -42,7 +42,7 @@ const mapStateToProps = state => ({
   isAuthenticated: state.State.loggedinUser
 });
 
-export default connect(
+export const Header = connect(
   mapStateToProps,
   { logout: userLogout }
-)(Header);
+)(HeaderComponent);

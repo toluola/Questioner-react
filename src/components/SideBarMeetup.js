@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import { GetMeetups } from "../state/actions";
 
-const SideBarMeetup = ({ getMeetup, meetups }) => {
+ export const SideBar = ({ getMeetup, meetups }) => {
   useEffect(() => {
     getMeetup();
   }, [getMeetup]);
@@ -37,7 +37,7 @@ const mapStateToProps = state => ({
   meetups: state.State.AllMeetups
 });
 
-export default connect(
+export const SideBarMeetup = connect(
   mapStateToProps,
   { getMeetup: GetMeetups }
-)(withRouter(SideBarMeetup));
+)(withRouter(SideBar));
