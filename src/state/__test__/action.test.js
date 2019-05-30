@@ -41,11 +41,4 @@ describe('Test all Actions', () => {
         const [getAction] = store.getActions();
         expect(getAction.type).toEqual(MeetupSuccess(mockedObject).type);
       });
-
-    //   it('Get all meetups', async () => {
-    //     axios.defaults.headers.common.Authorization = JWT_TOKEN;
-    //     await store.dispatch(userSignin());
-    //     const [getAction] = store.getActions();
-    //     expect(getAction.type).toEqual(signinSuccess(mockedObject).type);
-    //   });
 })

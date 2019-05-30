@@ -129,7 +129,7 @@ export const userSignup = formData => async dispatch => {
     localStorage.setItem("questionerToken", register.data.token);
   } catch (error) {
     dispatch(loading("false"));
-    dispatch(signupFailure(error.response.data.message));
+    dispatch(errors(error.response.data.message));
   }
 };
 

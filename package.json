@@ -28,8 +28,8 @@
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!<rootDir>/node_modules/",
-      "!<rootDir>/src/css/",
-      "!<rootDir>/src/css/utils"
+      "!<rootDir>/src/utils/",
+      "!<rootDir>/src/state/"
     ]
   },
   "scripts": {
