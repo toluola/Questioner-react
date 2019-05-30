@@ -1,39 +1,3 @@
-
-// const HtmlWebPackPlugin = require("html-webpack-plugin");
-// module.exports = {
-//   module: {
-//     entry: './src/index.js',
-//     rules: [
-//       {
-//         test: /\.(js|jsx)$/,
-//         exclude: /node_modules/,
-//         use: {
-//           loader: "babel-loader"
-//         }
-//       },
-//       {
-//         test: /\.(scss|css)$/,
-//         use: ['style-loader', 'css-loader', 'sass-loader'],
-//       },
-//       {
-//         test: /\.html$/,
-//         use: [
-//           {
-//             loader: "html-loader"
-//           }
-//         ]
-//       }
-//     ]
-//   },
-//   plugins: [
-//     new HtmlWebPackPlugin({
-//       template: "./src/public/index.html",
-//       filename: "./index.html"
-//     })
-//   ]
-// };
-
-
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
