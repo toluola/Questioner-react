@@ -5,7 +5,7 @@ import { Form, ButtonToolbar, Button } from "react-bootstrap";
 import { withRouter } from "react-router-dom";
 import { getComments, postComment } from "../state/actions";
 
-const Comment = ({ getQuestionComment, match, comments, commentPost }) => {
+export const CommentComponent = ({ getQuestionComment, match, comments, commentPost }) => {
   const { questionId } = match.params;
   useEffect(() => {
     getQuestionComment(questionId);
@@ -77,7 +77,7 @@ const Comment = ({ getQuestionComment, match, comments, commentPost }) => {
 
 const mapStateToProps = state => ({ comments: state.State.comments });
 
-export default connect(
+export const CommentBody = connect(
   mapStateToProps,
   { getQuestionComment: getComments, commentPost: postComment }
-)(withRouter(Comment));
+)(withRouter(CommentComponent));

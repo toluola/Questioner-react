@@ -17,7 +17,7 @@ const schema = Yup.object({
     .trim()
 });
 
-const Signin = props => {
+export const SigninComponent = props => {
   const { loginState } = props;
   return (
     <Formik
@@ -98,7 +98,7 @@ const Signin = props => {
 
 const mapStateToProps = state => ({ loginState: state.State });
 
-export default connect(
+export const Signin = connect(
   mapStateToProps,
   { userSignin }
-)(Signin);
+)(SigninComponent);
