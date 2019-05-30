@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render index component <Index /> component is rendered 1`] = `ShallowWrapper {}`;
