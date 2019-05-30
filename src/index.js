@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import store from "./state/store";
 import { signinSuccess } from "./state/actions";
 import App from "./App";
-import * as serviceWorker from "./serviceWorker";
 
 if (localStorage.questionerToken) {
   const payload = decode(localStorage.questionerToken);
@@ -19,5 +18,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
-serviceWorker.unregister();

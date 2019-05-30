@@ -129,7 +129,7 @@ export const userSignup = formData => async dispatch => {
     localStorage.setItem("questionerToken", register.data.token);
   } catch (error) {
     dispatch(loading("false"));
-    dispatch(signupFailure(error.response.data.message));
+    dispatch(errors(error.response.data.message));
   }
 };
 
@@ -147,7 +147,7 @@ export const getQuestions = meetupId => async dispatch => {
     const getQuestion = await axios.get(`/questions/${meetupId}`);
     dispatch(getMeetupQuestions(getQuestion.data.data));
   } catch (error) {
-    throw new Error(error.response);
+    dispatch(errors(error.response.data.message));
   }
 };
 
@@ -156,7 +156,7 @@ export const getComments = questionId => async dispatch => {
     const getComment = await axios.get(`/comments/${questionId}`);
     dispatch(getQuestionComment(getComment.data.data));
   } catch (error) {
-    throw new Error(error.response);
+    dispatch(errors(error.response.data.message));
   }
 };
 
@@ -165,7 +165,7 @@ export const postQuestion = (meetupId, body) => async dispatch => {
     const question = await axios.post(`/questions/${meetupId}`, body );
     dispatch(postMeetupQuestion(question.data.message));
   } catch (error) {
-    throw new Error(error.response);
+    dispatch(errors(error.response.data.message));
   }
 };
 
@@ -174,7 +174,7 @@ export const postComment = (questionId, body) => async dispatch => {
     const comment = await axios.post(`/comments/${questionId}`, body );
     dispatch(postQuestionComment(comment.data.message));
   } catch (error) {
-    throw new Error(error.response);
+    dispatch(errors(error.response.data.message));
   }
 };
 

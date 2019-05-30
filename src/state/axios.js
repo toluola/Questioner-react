@@ -3,7 +3,7 @@ import axios from 'axios';
 const authToken = localStorage.getItem('questionerToken');
 
 const Axios = axios.create({
-  baseURL: 'http://localhost:4000/api/v1',
+  baseURL: 'https://questioner03.herokuapp.com/api/v1/',
   headers: {
     'Content-Type': 'application/json'
   }
