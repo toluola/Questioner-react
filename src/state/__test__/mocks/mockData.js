@@ -32,3 +32,8 @@ export const JWT_TOKEN =
     },
     error: null,
   };
+
+  export const UserSignin = {
+      email: 'toluola7@gmail.com',
+      password: 'test123'
+  }

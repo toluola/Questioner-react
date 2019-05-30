@@ -1,6 +1,6 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import { JWT_TOKEN, mockedObject } from "./mocks/mockData";
+import { JWT_TOKEN, mockedObject, UserSignin } from "./mocks/mockData";
 import axios from "../axios";
 import {
   GetMeetups,
@@ -40,5 +40,12 @@ describe('Test all Actions', () => {
         await store.dispatch(GetMeetups());
         const [getAction] = store.getActions();
         expect(getAction.type).toEqual(MeetupSuccess(mockedObject).type);
+      });
+
+      it('sign in user', async () => {
+        axios.defaults.headers.common.Authorization = JWT_TOKEN;
+        await store.dispatch(userSignin(UserSignin));
+        const [getAction] = store.getActions();
+        expect(getAction.type).toEqual(signinSuccess(UserSignin).type);
       });
 })
