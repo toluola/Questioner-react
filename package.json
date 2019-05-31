@@ -91,10 +91,11 @@
     ],
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/lib/tags.js",
-      "<rootDir>/src/state",
       "<rootDir>/src/utils",
       "<rootDir>/src/components/UserRoute.js",
-      "<rootDir>/src/forms"
+      "<rootDir>/src/forms",
+      "<rootDir>/src/state/actions",
+      "<rootDir>/src/state/reducers"
     ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/__mocks__/assetsTransformer.js",
