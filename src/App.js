@@ -17,7 +17,8 @@ import QuestionPage from './pages/Questions';
 import { SigninPage } from './pages/Signin';
 import { SignupPage } from './pages/Signup';
 import singleMeetupPage from './pages/SingleMeetup';
-import Comment from './pages/Comment';
+import Comment from './pages/Comment'
+import { PrivateRoute } from './components/UserRoute';
 
 const App = () => 
   <Router>
@@ -25,9 +26,9 @@ const App = () =>
       <Route path='/' exact component={MainPage}></Route>
       <Route path='/signin' exact component={SigninPage}></Route>
       <Route path='/signup' exact component={SignupPage}></Route>
-      <Route path='/meetup/:id' exact component={singleMeetupPage}></Route>
-      <Route path='/meetup/:meetupId/questions/' exact component={QuestionPage}></Route>
-      <Route path='/:questionId/comments' exact component={Comment}></Route>
+      <PrivateRoute path='/meetup/:id' exact component={singleMeetupPage}></PrivateRoute>
+      <PrivateRoute path='/meetup/:meetupId/questions/' exact component={QuestionPage}></PrivateRoute>
+      <PrivateRoute path='/:questionId/comments' exact component={Comment}></PrivateRoute>
     </Switch>
   </Router>
 
